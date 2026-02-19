@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>D-TV | ГЛОБАЛЬНАЯ БАЗА ДАННЫХ</title>
+    <style>
+        body { 
+            background: #000; color: #00ff41; font-family: 'Segoe UI', Courier, monospace; 
+            margin: 0; padding: 0; overflow-x: hidden;
+        }
+        header { 
+            background: rgba(0, 255, 65, 0.1); padding: 50px; text-align: center;
+            border-bottom: 3px solid #00ff41; box-shadow: 0 0 20px #00ff41;
+        }
+        .container { padding: 50px; max-width: 1400px; margin: auto; }
+        
+        /* Сетка для карточек */
+        .grid { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+            gap: 30px; margin-top: 40px; 
+        }
+
+        .card { 
+            background: #0a0a0a; border: 2px solid #00ff41; padding: 30px;
+            border-radius: 15px; position: relative; transition: 0.3s;
+        }
+        .card:hover { transform: scale(1.02); box-shadow: 0 0 30px rgba(0, 255, 65, 0.4); }
+
+        .danger-zone { 
+            border-color: #ff0000; color: #ff0000; box-shadow: inset 0 0 15px #ff0000; 
+        }
+        
+        .status-badge {
+            position: absolute; top: 10px; right: 10px; padding: 5px 10px;
+            background: #00ff41; color: #000; font-weight: bold; font-size: 12px;
+        }
+
+        .glitch { animation: scan 2s linear infinite; }
+        @keyframes scan {
+            0% { text-shadow: 2px 0 red, -2px 0 blue; }
+            50% { text-shadow: -2px 0 red, 2px 0 blue; }
+            100% { text-shadow: 2px 0 red, -2px 0 blue; }
+        }
+
+        .sidebar { border-left: 2px solid #00ff41; padding-left: 20px; }
+        h2 { text-transform: uppercase; letter-spacing: 5px; }
+        .info-block { font-size: 1.2em; line-height: 1.8; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1 class="glitch">D-TV: АРХИВ ДЕТЕКТИВА Д И ПОМОЩНИКА П (RIP)</h1>
+    <p>МЫ ЗНАЕМ ВСЁ О ТЕХ, КТО ПОЛЬЗУЕТСЯ ПАЛКОЙ И ТЕЛЕПОРТАМИ</p>
+</header>
+
+<div class="container">
+    <div class="info-block">
+        <p>> ПОСЛЕДНЕЕ ОБНОВЛЕНИЕ: Роботикс С предал создателя.</p>
+        <p>> ВНИМАНИЕ: Лучник всё еще в берлоге. Не открывайте глаза перед камерой!</p>
+    </div>
+
+    <div class="grid">
+        <!-- КЕНИИ -->
+        <div class="card">
+            <div class="status-badge">МЕРТВ</div>
+            <h2>КЕНИИ</h2>
+            <p><strong>Роль:</strong> 1-й Уничтожитель.</p>
+            <p><strong>Связи:</strong> Лучший друг Кино.</p>
+            <p>Был уничтожен, но его дело живет в новых маньяках.</p>
+        </div>
+
+        <!-- КИНО -->
+        <div class="card danger-zone">
+            <div class="status-badge">ТРАГЕДИЯ</div>
+            <h2>КИНО</h2>
+            <p><strong>Статус:</strong> Вдовец / Лучший друг Кении.</p>
+            <p><strong>Досье:</strong> После смерти жены стал легкой целью для манипуляций. Ищем связь с Лучником.</p>
+        </div>
+
+        <!-- РОБОТИКС С -->
+        <div class="card">
+            <div class="status-badge">ПРЕДАТЕЛЬ</div>
+            <h2>РОБОТИКС С (XD)</h2>
+            <p><strong>Происхождение:</strong> Создан роботом из деталей Детектива Д.</p>
+            <p><strong>Интеллект:</strong> Высокий (но тупее, чем у Д).</p>
+            <p><strong>Текущая цель:</strong> Модернизация Лучника в берлоге.</p>
+        </div>
+
+        <!-- ЛУЧНИК -->
+        <div class="card danger-zone">
+            <div class="status-badge">РАЗЫСКИВАЕТСЯ</div>
+            <h2>ЛУЧНИК (НЕИЗВЕСТЕН)</h2>
+            <p><strong>Оружие:</strong> Телепорт-стрела / Палка (ближний бой).</p>
+            <p><strong>Условие убийства:</strong> Имя + Глаз (дистанция) или просто Палка (вблизи).</p>
+            <p><strong>Локация:</strong> Берлога.</p>
+        </div>
+    </div>
+
+    <div style="margin-top: 50px; text-align: center;">
+        <button onclick="location.href='index.html'" style="background: transparent; color: #00ff41; border: 1px solid #00ff41; padding: 15px 30px; cursor: pointer;">
+            ВЕРНУТЬСЯ В ДОМ СЕЛЬВЕСТРА
+        </button>
+    </div>
+</div>
+
+</body>
+</html>
