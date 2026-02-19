@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ДТВ: Тайны Уничтожителей</title>
+    <style>
+        body { background: #0f0f0f; color: #fff; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        #tv-screen { width: 80%; max-width: 800px; background: #222; border: 15px solid #444; border-radius: 20px; padding: 20px; box-shadow: 0 0 50px rgba(255,0,0,0.2); }
+        .news-line { background: red; color: white; padding: 5px; font-weight: bold; overflow: hidden; white-space: nowrap; margin-bottom: 15px; }
+        #chat { height: 300px; overflow-y: auto; background: #000; padding: 15px; border: 2px solid #555; margin-bottom: 20px; font-size: 14px; }
+        .evelina { color: #ff69b4; font-weight: bold; }
+        .nastya { color: #00ff00; }
+        .system { color: #ffcc00; font-style: italic; }
+        .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; }
+        button { padding: 12px; border: none; border-radius: 8px; cursor: pointer; background: #444; color: white; font-weight: bold; transition: 0.3s; }
+        button:hover { background: #666; transform: scale(1.05); }
+    </style>
+</head>
+<body>
+
+<h1>Роскошный дом Сельвестра</h1>
+
+<div id="tv-screen">
+    <div class="news-line"><marquee>СРОЧНО: КЕНИИ И РИНО — ЛИЧНОСТИ УНИЧТОЖИТЕЛЕЙ РАСКРЫТЫ! РОБОТИКС С РАБОТАЕТ С ЛУЧНИКОМ!</marquee></div>
+    
+    <div id="chat">
+        <p class="system">Вы сидите перед огромным ТВ. Настя закинула ноги на стол.</p>
+        <p class="evelina">Эвелина: "Сельвестр, ты видел сайт ДТВ?! Роботикс С предал Д! А детали-то ему сам Д давал..."</p>
+    </div>
+
+    <div class="controls">
+        <button onclick="action('evelina_flex')">Эвелина хвастается силой</button>
+        <button onclick="action('nastya_hit')">Настя бьет Сельвестра</button>
+        <button onclick="action('dtv_news')">Читать про Кении и Рино</button>
+        <button onclick="action('archer_fear')">Спросить про Лучника</button>
+    </div>
+</div>
+
+<script>
+    const chat = document.getElementById('chat');
+
+    function action(type) {
+        let msg = "";
+        let cls = "";
+
+        switch(type) {
+            case 'evelina_flex':
+                msg = "Эвелина: 'Моё лицо идеально, а кулак еще идеальнее. Пусть этот Роботикс С только сунется сюда со своими деталями!'";
+                cls = "evelina";
+                break;
+            case 'nastya_hit':
+                msg = "Настя дает Сельвестру подзатыльник: 'Не спи, малявка! В 4 классе и так нагрузка слабая!' (Эвелина довольно смеется)";
+                cls = "system";
+                break;
+            case 'dtv_news':
+                msg = "Настя: 'Прикинь, Кении и Рино были друзьями, а у Рино жена умерла... Какая драма на ДТВ!'";
+                cls = "nastya";
+                break;
+            case 'archer_fear':
+                msg = "Эвелина: 'Лучник в берлоге, Роботикс С дает ему апгрейды... Детективу Д будет очень сложно без П!'";
+                cls = "evelina";
+                break;
+        }
+
+        const p = document.createElement('p');
+        p.className = cls;
+        p.innerHTML = msg;
+        chat.appendChild(p);
+        chat.scrollTop = chat.scrollHeight;
+    }
+</script>
+
+</body>
+</html>
