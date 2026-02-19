@@ -2,71 +2,72 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>ДТВ: Тайны Уничтожителей</title>
+    <title>Особняк Сельвестра | Командный Центр</title>
     <style>
-        body { background: #0f0f0f; color: #fff; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; }
-        #tv-screen { width: 80%; max-width: 800px; background: #222; border: 15px solid #444; border-radius: 20px; padding: 20px; box-shadow: 0 0 50px rgba(255,0,0,0.2); }
-        .news-line { background: red; color: white; padding: 5px; font-weight: bold; overflow: hidden; white-space: nowrap; margin-bottom: 15px; }
-        #chat { height: 300px; overflow-y: auto; background: #000; padding: 15px; border: 2px solid #555; margin-bottom: 20px; font-size: 14px; }
-        .evelina { color: #ff69b4; font-weight: bold; }
-        .nastya { color: #00ff00; }
-        .system { color: #ffcc00; font-style: italic; }
-        .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; }
-        button { padding: 12px; border: none; border-radius: 8px; cursor: pointer; background: #444; color: white; font-weight: bold; transition: 0.3s; }
-        button:hover { background: #666; transform: scale(1.05); }
+        body { background: #121212; color: #fff; font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; flex-direction: column; align-items: center; }
+        .mansion-header { width: 100%; height: 200px; background: linear-gradient(to bottom, #1a1a1a, #333); border-bottom: 5px solid #ffd700; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        .main-layout { display: flex; width: 95%; max-width: 1400px; gap: 20px; margin-top: 20px; }
+        .room { flex: 2; background: #1e1e1e; border-radius: 15px; padding: 20px; border: 1px solid #444; height: 600px; overflow-y: auto; }
+        .sidebar { flex: 1; display: flex; flex-direction: column; gap: 20px; }
+        .widget { background: #252525; padding: 15px; border-radius: 10px; border-left: 5px solid #ff00ea; }
+        .energy-cats { border-left-color: #00f2ff; }
+        .dead-alert { background: #4a0000; border-left: 5px solid #ff0000; animation: blink 2s infinite; }
+        @keyframes blink { 0% {opacity: 1;} 50% {opacity: 0.7;} 100% {opacity: 1;} }
+        .btn-dtv { width: 100%; padding: 20px; background: #ff0000; color: white; font-weight: bold; border: none; border-radius: 10px; cursor: pointer; font-size: 1.2em; transition: 0.3s; }
+        .btn-dtv:hover { background: #cc0000; transform: scale(1.02); }
+        .msg { margin-bottom: 15px; line-height: 1.4; padding: 10px; border-radius: 5px; }
+        .evelina { background: rgba(255, 105, 180, 0.1); border: 1px solid #ff69b4; color: #ff69b4; }
+        .nastya { background: rgba(0, 255, 0, 0.1); border: 1px solid #00ff00; color: #00ff00; }
     </style>
 </head>
 <body>
 
-<h1>Роскошный дом Сельвестра</h1>
+<div class="mansion-header">
+    <h1>РОСКОШНЫЙ ОСОБНЯК СЕЛЬВЕСТРА</h1>
+    <p>Статус: 4 класс, Каникулы. Гости: Эвелина (7к), Настя (7к)</p>
+</div>
 
-<div id="tv-screen">
-    <div class="news-line"><marquee>СРОЧНО: КЕНИИ И РИНО — ЛИЧНОСТИ УНИЧТОЖИТЕЛЕЙ РАСКРЫТЫ! РОБОТИКС С РАБОТАЕТ С ЛУЧНИКОМ!</marquee></div>
-    
-    <div id="chat">
-        <p class="system">Вы сидите перед огромным ТВ. Настя закинула ноги на стол.</p>
-        <p class="evelina">Эвелина: "Сельвестр, ты видел сайт ДТВ?! Роботикс С предал Д! А детали-то ему сам Д давал..."</p>
+<div class="main-layout">
+    <!-- Гостиная -->
+    <div class="room" id="log">
+        <div class="msg evelina"><b>Эвелина:</b> Сельвестр, я тут размялась немного, пока ты код писал. Моё лицо всё еще идеально, а кулак готов встретить любого Уничтожителя!</div>
+        <div class="msg nastya"><b>Настя:</b> (поправляет футболку) Ой, да ладно тебе! Сельвестр, смотри, я тут в холодильнике твоем порядок навела. Не стесняюсь же!</div>
     </div>
 
-    <div class="controls">
-        <button onclick="action('evelina_flex')">Эвелина хвастается силой</button>
-        <button onclick="action('nastya_hit')">Настя бьет Сельвестра</button>
-        <button onclick="action('dtv_news')">Читать про Кении и Рино</button>
-        <button onclick="action('archer_fear')">Спросить про Лучника</button>
+    <!-- Панель управления -->
+    <div class="sidebar">
+        <button class="btn-dtv" onclick="location.href='dtv.html'">ВКЛЮЧИТЬ КАНАЛ D-TV</button>
+        
+        <div class="widget dead-alert">
+            <strong>СТАТУС ПОМОЩНИКА П:</strong>
+            <p>ПОДТВЕРЖДЕНО: МЕРТВ. <br>Убит телепорт-стрелой.</p>
+        </div>
+
+        <div class="widget energy-cats">
+            <strong>ГЕРОИ "ЭНЕРГИЯ КОТЫ":</strong>
+            <p>Статус: Патрулируют район кафе Д.</p>
+        </div>
+
+        <div class="widget">
+            <strong>ДЕТЕКТИВ Д:</strong>
+            <p>Самый умный. Изучает детали Роботикса С.</p>
+        </div>
+
+        <div class="widget" style="border-left-color: #ffd700;">
+            <strong>ИНТЕРАКТИВ:</strong>
+            <button onclick="addMsg('nastya', 'Настя в шутку бьет Сельвестра! Эвелина не против.')" style="width:100%; margin-top:5px;">Настя, бей его!</button>
+        </div>
     </div>
 </div>
 
 <script>
-    const chat = document.getElementById('chat');
-
-    function action(type) {
-        let msg = "";
-        let cls = "";
-
-        switch(type) {
-            case 'evelina_flex':
-                msg = "Эвелина: 'Моё лицо идеально, а кулак еще идеальнее. Пусть этот Роботикс С только сунется сюда со своими деталями!'";
-                cls = "evelina";
-                break;
-            case 'nastya_hit':
-                msg = "Настя дает Сельвестру подзатыльник: 'Не спи, малявка! В 4 классе и так нагрузка слабая!' (Эвелина довольно смеется)";
-                cls = "system";
-                break;
-            case 'dtv_news':
-                msg = "Настя: 'Прикинь, Кении и Рино были друзьями, а у Рино жена умерла... Какая драма на ДТВ!'";
-                cls = "nastya";
-                break;
-            case 'archer_fear':
-                msg = "Эвелина: 'Лучник в берлоге, Роботикс С дает ему апгрейды... Детективу Д будет очень сложно без П!'";
-                cls = "evelina";
-                break;
-        }
-
-        const p = document.createElement('p');
-        p.className = cls;
-        p.innerHTML = msg;
-        chat.appendChild(p);
-        chat.scrollTop = chat.scrollHeight;
+    function addMsg(user, text) {
+        const log = document.getElementById('log');
+        const div = document.createElement('div');
+        div.className = 'msg ' + user;
+        div.innerHTML = `<b>${user === 'nastya' ? 'Настя' : 'Эвелина'}:</b> ${text}`;
+        log.appendChild(div);
+        log.scrollTop = log.scrollHeight;
     }
 </script>
 
